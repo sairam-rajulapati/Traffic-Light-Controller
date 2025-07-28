@@ -36,7 +36,7 @@ Timer (4-bit) to control how long each light stays active.
 
 Combinational logic to assign lights based on current state.
 
-# 3. State Machine Details
+#  State Machine Details
 
 | State | Active Direction | Light  | Duration (clock cycles) |
 | ----- | ---------------- | ------ | ----------------------- |
@@ -89,7 +89,7 @@ Simulation Control: $dumpfile and $dumpvars are used to generate a Value Change 
 
 Monitoring: An always @(posedge clk) block with $display is used to print the time and the current state of all traffic lights at each positive clock edge, facilitating textual verification of the system's behavior.
 
-# 4. Problem Statement
+#  Problem Statement
 Design and implement a four-way traffic light controller for an intersection. The controller must manage the flow of traffic in North, East, South, and West directions, ensuring that only one direction has a green light at a time, followed by a brief yellow light before transitioning to another direction. The system should operate synchronously with a given clock and be resettable. Each green light phase should last for a configurable duration, and each yellow light phase should also last for a configurable, shorter duration.
 
 Key Requirements:
@@ -108,7 +108,7 @@ Synchronous Operation: All state changes and timing are driven by a clock signal
 
 Reset Capability: The system should reset to a predefined initial state.
 
-# 5.System Design Approach
+# System Design Approach
 System Design Approach
 The traffic light controller is designed using a Finite State Machine (FSM). This approach is well-suited for systems that have a finite number of states and transition between them based on inputs and internal logic.
 
@@ -256,7 +256,7 @@ R = Red (3'b100)
 | `S6`          | 5               | `S7`       | `3'b100` (Red)      | `3'b100` (Red)    | `3'b100` (Red)     | `3'b001` (Green)  | West is Green for 5 cycles.                       |
 | `S7`          | 2               | `S0`       | `3'b100` (Red)      | `3'b100` (Red)    | `3'b100` (Red)     | `3'b010` (Yellow) | West is Yellow for 2 cycles. All others Red. Then cycles back to North Green. |
 
-# RTL Code
+# 3. RTL Code
 
 `timescale 1ns / 1ps
 
@@ -319,7 +319,7 @@ endmodule
 # RTL Schematic View
 <img width="1605" height="858" alt="Screenshot 2025-07-28 211359" src="https://github.com/user-attachments/assets/aba8ebed-9ac6-4d1d-9b7a-2b70fe61c65a" />
 
-# TESTBENCH
+# 4. TESTBENCH
 
 
 `timescale 1ns / 1ps
@@ -355,5 +355,5 @@ module tb_traffic_light_4way;
     end
 endmodule
 
-# Output Waveforms
+# 5. Output Waveforms
 <img width="1901" height="599" alt="Screenshot 2025-07-14 172437" src="https://github.com/user-attachments/assets/eb001773-c5e6-48ea-ac7e-8656b21914ac" />
